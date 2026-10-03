@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <!--Set this to your project's name. This influences the .dll's name -->
-    <ProjectName>Template</ProjectName>
+    <ProjectName>ChangeableMoodles</ProjectName>
 
     <!--If auto-detection misses your install, set this to your game folder.-->
     <!-- E.g. <ManualBaseGamePath>C:\Some\Path\To\Your\Game\Folder</ManualBaseGamePath> -->
@@ -15,6 +15,11 @@
 
   <Choose>
     <When Condition="'$(BaseGamePath)' != ''" />
+    <When Condition="Exists('../../../CasualtiesUnknown.exe')">
+      <PropertyGroup>
+        <BaseGamePath>../../../</BaseGamePath>
+      </PropertyGroup>
+    </When>
     <When Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Casualties Unknown Demo')">
       <PropertyGroup>
         <BaseGamePath>C:\Program Files (x86)\Steam\steamapps\common\Casualties Unknown Demo</BaseGamePath>
